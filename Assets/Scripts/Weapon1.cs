@@ -14,7 +14,7 @@ public class Weapon1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerPosition = transform.parent;
+        playerPosition = transform.parent;//which is the transform of Player object
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class Weapon1 : MonoBehaviour
     void Shoot()
     {
 
-        GameObject bullet = Instantiate(bulletPrefab, playerPosition.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().SetSpeed();
+        GameObject bullet = Instantiate(bulletPrefab, playerPosition.position, Quaternion.identity);// creat a new bullet
+        bullet.GetComponent<Bullet>().SetSpeed();// the direction of this bullet
     }
 }
