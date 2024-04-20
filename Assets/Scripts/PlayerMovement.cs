@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject[] tools;
+
     private Animator animator;
     private Rigidbody2D rigidbody2d;
     [SerializeField]
     private float speed = 10.9f;
-   
+    private int toolNumber;
 
     private void Awake()
     {
       
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
+        tools[0].SetActive(true);
+        
+
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        #region Movement
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
@@ -43,6 +49,12 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d.velocity = direction * speed;
 
         transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, -32f, 32f), Mathf.Clamp(transform.localPosition.y, -32f, 32f), 0f);
+        #endregion
+
+        #region Switch Tool
+        SwitchTool();
+        #endregion
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -50,4 +62,16 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    private void SwitchTool()
+    {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            tools[toolNumber].SetActive(false); //the current tool is not active
+            if(++toolNumber>tools.Length-1)
+            {
+                toolNumber = 0; //if the Tool Number exceeds the number of total, then let it be 0 again
+            }
+            tools[toolNumber].SetActive(true); //the new tool is active now
+        }
+    }
 }
