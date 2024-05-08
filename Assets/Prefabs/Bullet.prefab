@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 4632630747707579781, guid: 3b81ea103cb0c490a981aab3a7a98f55, type: 3}
   playerPosition: {fileID: 0}
 --- !u!50 &1728641575271623709
 Rigidbody2D:

@@ -19,6 +19,7 @@ public class Explosion : MonoBehaviour
         if (info.normalizedTime >= 1) //when playing is done
         {
             Destroy(gameObject);//destroy the explosion animation
+
         }
     }
 }
