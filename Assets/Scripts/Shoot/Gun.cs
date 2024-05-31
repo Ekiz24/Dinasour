@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public float shootingInterval;
-    public GameObject bulletPrefab;
+    public GameObject BulletPrefab;
     public Transform playerPosition;
 
     protected float timer;
@@ -42,9 +42,9 @@ public class Gun : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        Debug.Log("Shoot!");
-        GameObject bullet = Instantiate(bulletPrefab, playerPosition.position, Quaternion.identity);// creat a new bullet
+        //Debug.Log("Shoot!");
+        //GameObject bullet = Instantiate(bulletPrefab, playerPosition.position, Quaternion.identity);// creat a new bullet
 
-        bullet.GetComponent<Bullet>().SetSpeed();// the direction of this bullet
+        //bullet.GetComponent<Bullet>().SetSpeed();// the direction of this bullet
     }
 }

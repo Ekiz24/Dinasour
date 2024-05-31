@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
-    public GameObject explosionPrefab; //for playing explosion animation
+    //public GameObject explosionPrefab; //for playing explosion animation
     //public Transform playerPosition;
 
     new private Rigidbody2D rigidbody;
@@ -32,9 +32,9 @@ public class Bullet : MonoBehaviour
         if (collision.CompareTag("Dinosaur")|| collision.CompareTag("Walls"))
         {
             Debug.Log("Collided!");
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            //Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 
-            Destroy(gameObject); //create a explosion, and destroy that bullet
+            Destroy(gameObject); // destroy that bullet
 
         }
     }

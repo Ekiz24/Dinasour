@@ -6,11 +6,14 @@ TagManager:
   tags:
   - Dinosaur
   - Walls
+  - Web
+  - Snowball
+  - Berrybomb
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Explosion
   - Water
   - UI
   - Bullet
