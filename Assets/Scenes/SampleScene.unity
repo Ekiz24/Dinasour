@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876800628591d4786b9c89a04cce964b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 1
+  shootingInterval: 0.5
   BulletPrefab: {fileID: 1728641575271623711, guid: 5c981e4c0c16e49788faca1810b4d850, type: 3}
   playerPosition: {fileID: 235257703}
 --- !u!1 &200118839
