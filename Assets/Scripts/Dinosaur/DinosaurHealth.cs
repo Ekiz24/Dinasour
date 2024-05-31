@@ -10,6 +10,11 @@ public class DinosaurHealth : MonoBehaviour
     public GameObject snowballExplosionPrefab;
     public GameObject berrybombExplosionPrefab;
 
+    public int CurrentHealth // 添加一个公开的属性来获取当前血量
+    {
+        get { return currentHealth; }
+    }
+
     void Start()
     {
         currentHealth = maxHealth; // 初始化当前血量
