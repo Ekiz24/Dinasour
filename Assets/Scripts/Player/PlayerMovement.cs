@@ -56,11 +56,17 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        
+        if (collision.CompareTag("Dinosaur"))
+        {
+            Debug.Log("Fail!");
+
+            gameObject.SetActive(false);
+
+        }
     }
+
 
     private void SwitchTool()
     {
