@@ -6,6 +6,8 @@ public class DinosaurHealth : MonoBehaviour
 {
     public int maxHealth = 12; // 敌人最大血量
     private int currentHealth; // 当前血量
+    private Camera cameraShake;
+
     public GameObject webExplosionPrefab;
     public GameObject snowballExplosionPrefab;
     public GameObject berrybombExplosionPrefab;
@@ -18,6 +20,8 @@ public class DinosaurHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth; // 初始化当前血量
+        cameraShake = FindObjectOfType<Camera>(); // 查找相机抖动脚本
+        if (cameraShake != null) cameraShake.TriggerShake();
         Debug.Log("Start: Current Health = " + currentHealth);
     }
 
@@ -29,18 +33,21 @@ public class DinosaurHealth : MonoBehaviour
         {
             Debug.Log("Collided with Web");
             TakeDamage(4, "web");
+            if (cameraShake != null) cameraShake.TriggerShake();
             Destroy(collision.gameObject); // 碰撞后摧毁子弹
         }
         else if (collision.CompareTag("Snowball"))
         {
             Debug.Log("Collided with Snowball");
             TakeDamage(3, "snowball");
+            if (cameraShake != null) cameraShake.TriggerShake();
             Destroy(collision.gameObject); // 碰撞后摧毁子弹
         }
         else if (collision.CompareTag("Berrybomb"))
         {
             Debug.Log("Collided with Berrybomb");
             TakeDamage(2, "berrybomb");
+            if (cameraShake != null) cameraShake.TriggerShake();
             Destroy(collision.gameObject); // 碰撞后摧毁子弹
         }
     }
