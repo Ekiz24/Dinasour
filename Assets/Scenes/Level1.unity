@@ -351,12 +351,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1755198515}
   - {fileID: 1208447191}
   - {fileID: 1242585223}
   - {fileID: 1001611910}
   - {fileID: 601216142}
   - {fileID: 1473600494}
-  - {fileID: 1755198515}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1142,6 +1142,8 @@ MonoBehaviour:
   - {fileID: 147566859}
   - {fileID: 1486130438}
   - {fileID: 1488828489}
+  winPanel: {fileID: 1473600493}
+  failPanel: {fileID: 601216141}
   speed: 10.9
 --- !u!1 &299664032
 GameObject:
@@ -1695,6 +1697,7 @@ GameObject:
   - component: {fileID: 403866633}
   - component: {fileID: 403866632}
   - component: {fileID: 403866631}
+  - component: {fileID: 403866634}
   m_Layer: 5
   m_Name: Next Level
   m_TagString: Untagged
@@ -1766,7 +1769,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 403866632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 403866634}
+        m_TargetAssemblyTypeName: EnterLevel2, Assembly-CSharp
+        m_MethodName: LoadLevel2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &403866632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1805,6 +1820,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403866629}
   m_CullTransparentMesh: 1
+--- !u!114 &403866634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403866629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d93ff3485b242ba9a14968a93ad65b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &489339218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,7 +2169,7 @@ RectTransform:
   - {fileID: 1913975644}
   - {fileID: 331452288}
   m_Father: {fileID: 112175158}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2561,7 +2588,7 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 112175158}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -2787,7 +2814,7 @@ RectTransform:
   - {fileID: 131298548}
   - {fileID: 810980736}
   m_Father: {fileID: 112175158}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -2884,7 +2911,7 @@ RectTransform:
   - {fileID: 1437625758}
   - {fileID: 1311407726}
   m_Father: {fileID: 112175158}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3390,7 +3417,7 @@ RectTransform:
   - {fileID: 1542180410}
   - {fileID: 155167084}
   m_Father: {fileID: 112175158}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3984,7 +4011,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 112175158}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4201,6 +4228,7 @@ GameObject:
   - component: {fileID: 1913975647}
   - component: {fileID: 1913975646}
   - component: {fileID: 1913975645}
+  - component: {fileID: 1913975648}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -4272,7 +4300,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1913975646}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913975648}
+        m_TargetAssemblyTypeName: RestartLevel, Assembly-CSharp
+        m_MethodName: ReloadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1913975646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4311,6 +4351,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913975643}
   m_CullTransparentMesh: 1
+--- !u!114 &1913975648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913975643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516eea68ca02046348b971a4d3931b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1931025642
 PrefabInstance:
   m_ObjectHideFlags: 0

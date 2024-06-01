@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject[] tools;
+    public GameObject winPanel;
+    public GameObject failPanel;
+
     public int playerHP // 添加一个公开的属性来获取当前血量
     {
         get { return playerHealth; }
@@ -16,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 10.9f;
     private int toolNumber;
     private int playerHealth = 3;
+    private int kills = 0;
 
     private void Awake()
     {
@@ -66,12 +70,14 @@ public class PlayerMovement : MonoBehaviour
         if (collision.CompareTag("Dinosaur"))
         {
             playerHealth--;
+            kills++;
             Debug.Log("PlayerHealth:" + playerHealth);
             Destroy(collision.gameObject);
             if(playerHealth<=0)
             {
                 Debug.Log("You failed!");
                 gameObject.SetActive(false);
+                failPanel.SetActive(true);
             }
 
         }
@@ -88,6 +94,17 @@ public class PlayerMovement : MonoBehaviour
                 toolNumber = 0; //if the Tool Number exceeds the number of total, then let it be 0 again
             }
             tools[toolNumber].SetActive(true); //the new tool is active now
+        }
+    }
+
+    public void AddKills()
+    {
+        kills++;
+        Debug.Log("You captured"+kills);
+        if (kills >= 4)
+        {
+            gameObject.SetActive(false);
+            winPanel.SetActive(true);
         }
     }
 }

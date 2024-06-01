@@ -11,6 +11,10 @@ public class CoinDisplay : MonoBehaviour
         {
             coinText = GetComponent<Text>();
         }
+        else
+        {
+            Debug.Log("No coinText");
+        }
 
         // 初始化显示金币数
         UpdateCoinDisplay();
