@@ -35,6 +35,7 @@ public class DinosaurHealth : MonoBehaviour
             TakeDamage(4, "web");
             if (cameraShake != null) cameraShake.TriggerShake();
             Destroy(collision.gameObject); // 碰撞后摧毁子弹
+           
         }
         else if (collision.CompareTag("Snowball"))
         {
@@ -61,6 +62,7 @@ public class DinosaurHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Explode(explosionType);
+            DataSaveManager.Instance.AddCoin(); // 增加金币
         }
     }
 
