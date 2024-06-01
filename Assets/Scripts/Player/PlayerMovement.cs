@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerHealth--;
             Debug.Log("PlayerHealth:" + playerHealth);
+            Destroy(collision.gameObject);
             if(playerHealth<=0)
             {
                 Debug.Log("You failed!");
