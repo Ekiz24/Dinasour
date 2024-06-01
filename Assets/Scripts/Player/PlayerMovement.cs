@@ -5,12 +5,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject[] tools;
+    public int playerHP // 添加一个公开的属性来获取当前血量
+    {
+        get { return playerHealth; }
+    }
 
     private Animator animator;
     private Rigidbody2D rigidbody2d;
     [SerializeField]
     private float speed = 10.9f;
     private int toolNumber;
+    private int playerHealth = 3;
 
     private void Awake()
     {
@@ -60,9 +65,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Dinosaur"))
         {
-            Debug.Log("Fail!");
-
-            gameObject.SetActive(false);
+            playerHealth--;
+            Debug.Log("PlayerHealth:" + playerHealth);
+            if(playerHealth<=0)
+            {
+                Debug.Log("You failed!");
+                gameObject.SetActive(false);
+            }
 
         }
     }
