@@ -38,7 +38,7 @@ public class CoinDisplay : MonoBehaviour
         int currentCoins = DataSaveManager.Instance.GetCoins();
         if (coinText != null)
         {
-            coinText.text = "Coins: " + currentCoins;
+            coinText.text = currentCoins.ToString();
         }
         else
         {
