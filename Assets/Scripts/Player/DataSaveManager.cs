@@ -8,6 +8,7 @@ public class DataInfo
 {
     public string name;
     public int counts;
+    public bool bools;
 }
 
 [System.Serializable]
@@ -24,6 +25,8 @@ public class DataSaveManager : MonoBehaviour
     private DataInfo Level1;
     private DataInfo Level2;
     private DataInfo Level3;
+    private DataInfo ice;
+    private DataInfo berry;
 
     private static DataSaveManager instance;
     public static DataSaveManager Instance
@@ -83,8 +86,20 @@ public class DataSaveManager : MonoBehaviour
         Level3.name = "Level3";
         Level3.counts = 0;
 
+        ice = new DataInfo();
+        ice.name = "Ice";
+        ice.bools = false;
+
+        berry = new DataInfo();
+        berry.name = "Berry";
+        berry.bools = false;
+
         list.playerDataList.Add(coins);
         list.playerDataList.Add(Level1);
+        list.playerDataList.Add(Level2);
+        list.playerDataList.Add(Level3);
+        list.playerDataList.Add(ice);
+        list.playerDataList.Add(berry);
     }
 
     public void SaveData()
@@ -122,6 +137,9 @@ public class DataSaveManager : MonoBehaviour
                 Level1 = list.playerDataList.Find(data => data.name == "Level1");
                 Level2 = list.playerDataList.Find(data => data.name == "Level2");
                 Level3 = list.playerDataList.Find(data => data.name == "Level3");
+                ice = list.playerDataList.Find(data => data.name == "Ice");
+                berry = list.playerDataList.Find(data => data.name == "Berry");
+                Debug.Log("Ice data: " + JsonUtility.ToJson(ice));
             }
             catch (IOException e)
             {
@@ -140,6 +158,22 @@ public class DataSaveManager : MonoBehaviour
         if (coins != null)
         {
             coins.counts++;
+            SaveData();
+            if (coinDisplay != null)
+            {
+                coinDisplay.UpdateCoinDisplay();
+            }
+        }
+        else
+        {
+            Debug.LogError("Coins data is not initialized.");
+        }
+    }
+    public void MinusCoin()
+    {
+        if (coins != null)
+        {
+            coins.counts--;
             SaveData();
             if (coinDisplay != null)
             {
@@ -191,6 +225,33 @@ public class DataSaveManager : MonoBehaviour
         }
     }
 
+
+    public void ActivateIce()
+    {
+        if (ice != null)
+        {
+            ice.bools = true;
+            SaveData();
+        }
+        else
+        {
+            Debug.LogError("Ice Activation is not initialized.");
+        }
+    }
+
+    public void ActivateBerry()
+    {
+        if (berry != null)
+        {
+            berry.bools = true;
+            SaveData();
+        }
+        else
+        {
+            Debug.LogError("Berry Activation is not initialized.");
+        }
+    }
+
     public int GetCoins()
     {
         return coins != null ? coins.counts : 0;
@@ -208,6 +269,15 @@ public class DataSaveManager : MonoBehaviour
     public int GetPassedLevel3()
     {
         return Level3 != null ? Level3.counts : 0;
+    }
+
+    public bool GetIceActivation()
+    {
+        return ice != null ? ice.bools : false;
+    }
+    public bool GetBerryActivation()
+    {
+        return berry != null ? berry.bools : false;
     }
 }
 
