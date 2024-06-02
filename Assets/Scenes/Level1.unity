@@ -3520,12 +3520,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1486130438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 876800628591d4786b9c89a04cce964b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7df9c613e28da4d59b35ec8952b5fc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 0
+  shootingInterval: 0.5
   BulletPrefab: {fileID: 1728641575271623711, guid: b01caaeacf5554bcdae6bdb162021e02, type: 3}
   playerPosition: {fileID: 235257703}
+  numberOfBullets: 3
+  delayBetweenShots: 0.2
 --- !u!1 &1488828489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3622,12 +3624,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488828489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 876800628591d4786b9c89a04cce964b, type: 3}
+  m_Script: {fileID: 11500000, guid: ab1c200014774453b8c182a3ceabc020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingInterval: 0
+  shootingInterval: 0.5
   BulletPrefab: {fileID: 1728641575271623711, guid: a480bbbfcd79f45d8820690942829b72, type: 3}
   playerPosition: {fileID: 235257703}
+  spreadAngle: 15
 --- !u!1 &1542180409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3782,8 +3785,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596087492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.933, y: -0.3584, z: 0}
-  m_LocalScale: {x: 2, y: 1.4285715, z: -0.71428573}
+  m_LocalPosition: {x: 13, y: -0.9, z: 0}
+  m_LocalScale: {x: 1.55, y: 1.4761904, z: -0.7380952}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
