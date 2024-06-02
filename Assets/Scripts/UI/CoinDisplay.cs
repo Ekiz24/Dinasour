@@ -11,9 +11,10 @@ public class CoinDisplay : MonoBehaviour
         {
             coinText = GetComponent<Text>();
         }
-        else
+
+        if (coinText == null)
         {
-            Debug.Log("No coinText");
+            Debug.LogError("No Text component found for coinText");
         }
 
         // 初始化显示金币数
@@ -28,7 +29,20 @@ public class CoinDisplay : MonoBehaviour
 
     public void UpdateCoinDisplay()
     {
+        if (DataSaveManager.Instance == null)
+        {
+            Debug.LogError("DataSaveManager.Instance is null");
+            return;
+        }
+
         int currentCoins = DataSaveManager.Instance.GetCoins();
-        coinText.text = "Coins: " + currentCoins;
+        if (coinText != null)
+        {
+            coinText.text = "Coins: " + currentCoins;
+        }
+        else
+        {
+            Debug.LogError("coinText is null");
+        }
     }
 }

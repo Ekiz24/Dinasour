@@ -1197,8 +1197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 24
   webExplosionPrefab: {fileID: 4632630747707579781, guid: 3b81ea103cb0c490a981aab3a7a98f55, type: 3}
-  snowballExplosionPrefab: {fileID: 0}
-  berrybombExplosionPrefab: {fileID: 0}
+  snowballExplosionPrefab: {fileID: 4632630747707579781, guid: 0a5f15ef4b0f140f69195467358d8042, type: 3}
+  berrybombExplosionPrefab: {fileID: 4632630747707579781, guid: 3cef771bad3544fce99c15ca83be2860, type: 3}
 --- !u!114 &299664035
 MonoBehaviour:
   m_ObjectHideFlags: 0

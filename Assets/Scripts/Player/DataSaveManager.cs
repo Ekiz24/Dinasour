@@ -35,6 +35,7 @@ public class DataSaveManager : MonoBehaviour
                 {
                     GameObject go = new GameObject("DataSaveManager");
                     instance = go.AddComponent<DataSaveManager>();
+                    DontDestroyOnLoad(go); // 确保新创建的对象不会被销毁
                 }
             }
             return instance;
@@ -78,28 +79,42 @@ public class DataSaveManager : MonoBehaviour
 
     public void SaveData()
     {
-        string json = JsonUtility.ToJson(list);
-        string filePath = Application.persistentDataPath + "/PlayerDataList.json";
-        using (StreamWriter sw = new StreamWriter(filePath))
+        try
         {
-            sw.WriteLine(json);
-            sw.Close();
+            string json = JsonUtility.ToJson(list);
+            string filePath = Application.streamingAssetsPath + "/PlayerDataList.json";
+            using (StreamWriter sw = new StreamWriter(filePath))
+            {
+                sw.WriteLine(json);
+                sw.Close();
+            }
+        }
+        catch (IOException e)
+        {
+            Debug.LogError("Error saving data: " + e.Message);
         }
     }
 
     public void LoadData()
     {
-        string filePath = Application.persistentDataPath + "/PlayerDataList.json";
+        string filePath = Application.streamingAssetsPath + "/PlayerDataList.json";
         if (File.Exists(filePath))
         {
-            using (StreamReader sr = new StreamReader(filePath))
+            try
             {
-                string json = sr.ReadToEnd();
-                list = JsonUtility.FromJson<PlayerDataList>(json);
-                sr.Close();
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    string json = sr.ReadToEnd();
+                    list = JsonUtility.FromJson<PlayerDataList>(json);
+                    sr.Close();
+                }
+                coins = list.playerDataList.Find(data => data.name == "Coins");
+                passedLevels = list.playerDataList.Find(data => data.name == "Passed Levels");
             }
-            coins = list.playerDataList.Find(data => data.name == "Coins");
-            passedLevels = list.playerDataList.Find(data => data.name == "Passed Levels");
+            catch (IOException e)
+            {
+                Debug.LogError("Error loading data: " + e.Message);
+            }
         }
         else
         {
@@ -110,28 +125,42 @@ public class DataSaveManager : MonoBehaviour
 
     public void AddCoin()
     {
-        coins.counts++;
-        SaveData();
-        if (coinDisplay != null)
+        if (coins != null)
         {
-            coinDisplay.UpdateCoinDisplay();
+            coins.counts++;
+            SaveData();
+            if (coinDisplay != null)
+            {
+                coinDisplay.UpdateCoinDisplay();
+            }
+        }
+        else
+        {
+            Debug.LogError("Coins data is not initialized.");
         }
     }
 
     public void AddPassedLevel()
     {
-        passedLevels.counts++;
-        SaveData();
+        if (passedLevels != null)
+        {
+            passedLevels.counts++;
+            SaveData();
+        }
+        else
+        {
+            Debug.LogError("Passed levels data is not initialized.");
+        }
     }
 
     public int GetCoins()
     {
-        return coins.counts;
+        return coins != null ? coins.counts : 0;
     }
 
     public int GetPassedLevels()
     {
-        return passedLevels.counts;
+        return passedLevels != null ? passedLevels.counts : 0;
     }
 }
 
