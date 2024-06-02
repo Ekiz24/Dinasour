@@ -21,7 +21,9 @@ public class DataSaveManager : MonoBehaviour
     public PlayerDataList list = new PlayerDataList();
 
     private DataInfo coins;
-    private DataInfo passedLevels;
+    private DataInfo Level1;
+    private DataInfo Level2;
+    private DataInfo Level3;
 
     private static DataSaveManager instance;
     public static DataSaveManager Instance
@@ -69,12 +71,20 @@ public class DataSaveManager : MonoBehaviour
         coins.name = "Coins";
         coins.counts = 0;
 
-        passedLevels = new DataInfo();
-        passedLevels.name = "Passed Levels";
-        passedLevels.counts = 0;
+        Level1 = new DataInfo();
+        Level1.name = "Level1";
+        Level1.counts = 0;
+
+        Level2 = new DataInfo();
+        Level2.name = "Level2";
+        Level2.counts = 0;
+
+        Level3 = new DataInfo();
+        Level3.name = "Level3";
+        Level3.counts = 0;
 
         list.playerDataList.Add(coins);
-        list.playerDataList.Add(passedLevels);
+        list.playerDataList.Add(Level1);
     }
 
     public void SaveData()
@@ -109,7 +119,9 @@ public class DataSaveManager : MonoBehaviour
                     sr.Close();
                 }
                 coins = list.playerDataList.Find(data => data.name == "Coins");
-                passedLevels = list.playerDataList.Find(data => data.name == "Passed Levels");
+                Level1 = list.playerDataList.Find(data => data.name == "Level1");
+                Level2 = list.playerDataList.Find(data => data.name == "Level2");
+                Level3 = list.playerDataList.Find(data => data.name == "Level3");
             }
             catch (IOException e)
             {
@@ -140,11 +152,37 @@ public class DataSaveManager : MonoBehaviour
         }
     }
 
-    public void AddPassedLevel()
+    public void AddPassedLevel1()
     {
-        if (passedLevels != null)
+        if (Level1 != null)
         {
-            passedLevels.counts++;
+            Level1.counts++;
+            SaveData();
+        }
+        else
+        {
+            Debug.LogError("Passed levels data is not initialized.");
+        }
+    }
+
+    public void AddPassedLevel2()
+    {
+        if (Level2 != null)
+        {
+            Level2.counts++;
+            SaveData();
+        }
+        else
+        {
+            Debug.LogError("Passed levels data is not initialized.");
+        }
+    }
+
+    public void AddPassedLevel3()
+    {
+        if (Level3 != null)
+        {
+            Level3.counts++;
             SaveData();
         }
         else
@@ -158,9 +196,18 @@ public class DataSaveManager : MonoBehaviour
         return coins != null ? coins.counts : 0;
     }
 
-    public int GetPassedLevels()
+    public int GetPassedLevel1()
     {
-        return passedLevels != null ? passedLevels.counts : 0;
+        return Level1 != null ? Level1.counts : 0;
+    }
+
+    public int GetPassedLevel2()
+    {
+        return Level2 != null ? Level2.counts : 0;
+    }
+    public int GetPassedLevel3()
+    {
+        return Level3 != null ? Level3.counts : 0;
     }
 }
 
