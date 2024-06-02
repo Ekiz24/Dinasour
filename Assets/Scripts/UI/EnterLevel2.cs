@@ -10,6 +10,7 @@ public class EnterLevel2 : MonoBehaviour
         // 确保下一个场景名称不为空
         if (!string.IsNullOrEmpty("Level2"))
         {
+            DataSaveManager.Instance.AddPassedLevel2();
             SceneManager.LoadScene("Level2");
         }
         else
