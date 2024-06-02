@@ -14,6 +14,7 @@ public class DinosaurMovement : MonoBehaviour
     private int currentIndex = 0;// path point index
     private float pathGenerateInterval = 0.5f; //generate a path every 5 sec
     private float pathGenerateTimer = 0f;//timer for counting
+    private Vector3 lastPosition; // 上一帧的位置
     // Start is called before the first frame update
     void Awake()
     {
@@ -39,6 +40,21 @@ public class DinosaurMovement : MonoBehaviour
                 //The enemy's starting to move in the direction of the path point.
                 Vector2 direction = (pathPointList[currentIndex] - transform.position).normalized;
                 transform.Translate(direction * Time.deltaTime * moveSpeed, Space.World);
+
+            // 检查恐龙的移动方向并调整缩放
+            if (transform.position.x < lastPosition.x)
+            {
+                // 向右移动，设置缩放为正数
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else if (transform.position.x > lastPosition.x)
+            {
+                // 向左移动，设置缩放为负数
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+
+            // 更新上一帧的位置
+            lastPosition = transform.position;
         }
         else
         {
