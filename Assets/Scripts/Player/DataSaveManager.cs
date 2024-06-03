@@ -27,6 +27,7 @@ public class DataSaveManager : MonoBehaviour
     private DataInfo Level3;
     private DataInfo ice;
     private DataInfo berry;
+    private DataInfo tutorial;
 
     private static DataSaveManager instance;
     public static DataSaveManager Instance
@@ -94,12 +95,17 @@ public class DataSaveManager : MonoBehaviour
         berry.name = "Berry";
         berry.bools = false;
 
+        tutorial = new DataInfo();
+        tutorial.name = "Tutorial";
+        tutorial.bools = false;
+
         list.playerDataList.Add(coins);
         list.playerDataList.Add(Level1);
         list.playerDataList.Add(Level2);
         list.playerDataList.Add(Level3);
         list.playerDataList.Add(ice);
         list.playerDataList.Add(berry);
+        list.playerDataList.Add(tutorial);
     }
 
     public void SaveData()
@@ -139,7 +145,7 @@ public class DataSaveManager : MonoBehaviour
                 Level3 = list.playerDataList.Find(data => data.name == "Level3");
                 ice = list.playerDataList.Find(data => data.name == "Ice");
                 berry = list.playerDataList.Find(data => data.name == "Berry");
-                Debug.Log("Ice data: " + JsonUtility.ToJson(ice));
+                tutorial = list.playerDataList.Find(data => data.name == "Tutorial");
             }
             catch (IOException e)
             {
@@ -252,6 +258,19 @@ public class DataSaveManager : MonoBehaviour
         }
     }
 
+    public void SkipTutorial()
+    {
+        if (tutorial != null)
+        {
+            tutorial.bools = true;
+            SaveData();
+        }
+        else
+        {
+            Debug.LogError("Tutorial is not initialized.");
+        }
+    }
+
     public int GetCoins()
     {
         return coins != null ? coins.counts : 0;
@@ -278,6 +297,10 @@ public class DataSaveManager : MonoBehaviour
     public bool GetBerryActivation()
     {
         return berry != null ? berry.bools : false;
+    }
+    public bool GetTutorialActivation()
+    {
+        return tutorial != null ? tutorial.bools : false;
     }
 }
 
