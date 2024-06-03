@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SwitchTool()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKeyDown(KeyCode.K))
         {
             bool ice = DataSaveManager.Instance.GetIceActivation();
             bool berry = DataSaveManager.Instance.GetBerryActivation();

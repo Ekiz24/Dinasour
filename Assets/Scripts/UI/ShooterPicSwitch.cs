@@ -16,7 +16,7 @@ public class ShooterPicSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             bool ice = DataSaveManager.Instance.GetIceActivation();
             bool berry = DataSaveManager.Instance.GetBerryActivation();
