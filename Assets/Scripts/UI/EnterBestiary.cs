@@ -1,17 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnterLevel2 : MonoBehaviour
+public class EnterBestiary : MonoBehaviour
 {
-
     // 在按钮点击时调用这个方法
-    public void LoadLevel2()
+    public void LoadBestiary()
     {
         // 确保下一个场景名称不为空
-        if (!string.IsNullOrEmpty("Level2"))
+        if (!string.IsNullOrEmpty("Bestiary"))
         {
-            DataSaveManager.Instance.AddPassedLevel1();
-            SceneManager.LoadScene("Level2");
+            SceneManager.LoadScene("Bestiary");
         }
         else
         {

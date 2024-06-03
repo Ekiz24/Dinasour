@@ -17,7 +17,7 @@ public class TextDisappear : MonoBehaviour
 
     private System.Collections.IEnumerator HideAfterDelay()
     {
-        yield return new WaitForSeconds(2f); // 等待两秒钟
+        yield return new WaitForSeconds(1f); // 等待两秒钟
 
         // 渐隐
         for (float t = 1f; t >= 0; t -= Time.deltaTime)
