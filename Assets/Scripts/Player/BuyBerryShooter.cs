@@ -32,7 +32,7 @@ public class BuyBerryShooter : MonoBehaviour
                 DataSaveManager.Instance.MinusCoin();
             }
             BuyBerryButton.interactable = false;
-            DataSaveManager.Instance.ActivateIce();
+            DataSaveManager.Instance.ActivateBerry();
         }
         else
         {
