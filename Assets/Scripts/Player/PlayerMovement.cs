@@ -88,12 +88,46 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.T))
         {
-            tools[toolNumber].SetActive(false); //the current tool is not active
-            if(++toolNumber>tools.Length-1)
+            bool ice = DataSaveManager.Instance.GetIceActivation();
+            bool berry = DataSaveManager.Instance.GetBerryActivation();
+            if (ice ==true && berry==true)
             {
-                toolNumber = 0; //if the Tool Number exceeds the number of total, then let it be 0 again
+                tools[toolNumber].SetActive(false); //the current tool is not active
+                if (++toolNumber > tools.Length - 1)
+                {
+                    toolNumber = 0; //if the Tool Number exceeds the number of total, then let it be 0 again
+                }
+                tools[toolNumber].SetActive(true); //the new tool is active now
             }
-            tools[toolNumber].SetActive(true); //the new tool is active now
+            else if(ice == true && berry==false)
+            {
+                tools[toolNumber].SetActive(false); //the current tool is not active
+                if (++toolNumber > tools.Length - 2)
+                {
+                    toolNumber = 0; //if the Tool Number exceeds the number of total, then let it be 0 again
+                }
+                tools[toolNumber].SetActive(true); //the new tool is active now
+            }
+            else if(ice ==false && berry==true)
+                {
+                if (toolNumber == 0)
+                {
+                    toolNumber = toolNumber + 2;
+                    tools[0].SetActive(false);
+                    tools[2].SetActive(true);
+                }
+                if (toolNumber == 2)
+                {
+                    toolNumber = toolNumber - 2;
+                    tools[2].SetActive(false);
+                    tools[0].SetActive(true);
+                }
+
+            }
+            else
+            {
+                Debug.Log("Not Enough Tools!");
+            }
         }
     }
 
