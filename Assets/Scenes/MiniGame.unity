@@ -358,6 +358,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d57e5adcc67574a6ebd1bf9f00c772b2, type: 3}
+    - target: {fileID: 3501219565514557117, guid: 1c778ad5d23282d4cb34e58a26860d7c, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501219565514557117, guid: 1c778ad5d23282d4cb34e58a26860d7c, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501219565514557117, guid: 1c778ad5d23282d4cb34e58a26860d7c, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 3802659966886455199, guid: 1c778ad5d23282d4cb34e58a26860d7c, type: 3}
       propertyPath: inkJSONAsset
       value: 
