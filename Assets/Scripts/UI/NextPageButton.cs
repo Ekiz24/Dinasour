@@ -9,11 +9,23 @@ public class NextPageButton : MonoBehaviour
     private int PageNumber=0;
     void Awake()
     {
-        pages[0].SetActive(true);
-        hiddens[0].SetActive(false);
-        hiddens[1].SetActive(false);
-        hiddens[2].SetActive(false);
-        hiddens[3].SetActive(false);
+        bool oldplayer = DataSaveManager.Instance.GetTutorialActivation();
+        if (oldplayer==false)
+        {
+            pages[0].SetActive(true);
+            hiddens[0].SetActive(false);
+            hiddens[1].SetActive(false);
+            hiddens[2].SetActive(false);
+            hiddens[3].SetActive(false);
+        }
+        else
+        {
+            pages[pages.Length - 1].SetActive(false);
+            hiddens[0].SetActive(true);
+            hiddens[1].SetActive(true);
+            hiddens[2].SetActive(true);
+            hiddens[3].SetActive(true);
+        }
     }
  
 
