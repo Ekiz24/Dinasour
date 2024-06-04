@@ -6,7 +6,7 @@ public class DinosaurHealth : MonoBehaviour
 {
     public int maxHealth = 12; // 敌人最大血量
     private int currentHealth; // 当前血量
-    private Camera cameraShake;
+    protected Camera cameraShake;
     private PlayerMovement playerMovement; // 引用到玩家移动脚本
 
     public GameObject webExplosionPrefab;
@@ -27,7 +27,7 @@ public class DinosaurHealth : MonoBehaviour
         Debug.Log("Start: Current Health = " + currentHealth);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("OnTriggerEnter2D: Collided with " + collision.gameObject.tag);
 
@@ -42,21 +42,21 @@ public class DinosaurHealth : MonoBehaviour
         else if (collision.CompareTag("Snowball"))
         {
             Debug.Log("Collided with Snowball");
-            TakeDamage(3, "snowball");
+            TakeDamage(2, "snowball");
             if (cameraShake != null) cameraShake.TriggerShake();
             Destroy(collision.gameObject); // 碰撞后摧毁子弹
         }
         else if (collision.CompareTag("Berrybomb"))
         {
             Debug.Log("Collided with Berrybomb");
-            TakeDamage(2, "berrybomb");
+            TakeDamage(1, "berrybomb");
             if (cameraShake != null) cameraShake.TriggerShake();
             Destroy(collision.gameObject); // 碰撞后摧毁子弹
         }
     }
 
     // 处理敌人受到的伤害
-    void TakeDamage(int damage, string explosionType)
+    protected void TakeDamage(int damage, string explosionType)
     {
         currentHealth -= damage;
         Debug.Log("TakeDamage: Current Health = " + currentHealth);

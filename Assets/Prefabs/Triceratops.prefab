@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarImage: {fileID: 6825018127864644590}
-  dinosaurHealth: {fileID: 6825018128840629523}
+  dinosaurHealth: {fileID: 653133150999521289}
   smoothSpeed: 3
 --- !u!1 &6825018128840629525
 GameObject:
@@ -206,8 +206,8 @@ GameObject:
   - component: {fileID: 6825018128840629534}
   - component: {fileID: 6825018128840629535}
   - component: {fileID: 6825018128840629520}
+  - component: {fileID: 653133150999521289}
   - component: {fileID: 6825018128840629521}
-  - component: {fileID: 6825018128840629523}
   - component: {fileID: 6825018128840629522}
   m_Layer: 0
   m_Name: Triceratops
@@ -331,6 +331,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.278603, y: 8.447915}
   m_EdgeRadius: 0
+--- !u!114 &653133150999521289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6825018128840629525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260326ee48504454fb31ff373373afe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  webExplosionPrefab: {fileID: 4632630747707579781, guid: 3b81ea103cb0c490a981aab3a7a98f55, type: 3}
+  snowballExplosionPrefab: {fileID: 4632630747707579781, guid: 0a5f15ef4b0f140f69195467358d8042, type: 3}
+  berrybombExplosionPrefab: {fileID: 4632630747707579781, guid: 3cef771bad3544fce99c15ca83be2860, type: 3}
 --- !u!114 &6825018128840629521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,22 +362,6 @@ MonoBehaviour:
   moveSpeed: 2
   player: {fileID: 0}
   chaseDistance: 6
---- !u!114 &6825018128840629523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6825018128840629525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5bbfa1bbfa7043c4b75cb8a8c690307, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 12
-  webExplosionPrefab: {fileID: 4632630747707579781, guid: 3b81ea103cb0c490a981aab3a7a98f55, type: 3}
-  snowballExplosionPrefab: {fileID: 4632630747707579781, guid: 0a5f15ef4b0f140f69195467358d8042, type: 3}
-  berrybombExplosionPrefab: {fileID: 4632630747707579781, guid: 3cef771bad3544fce99c15ca83be2860, type: 3}
 --- !u!114 &6825018128840629522
 MonoBehaviour:
   m_ObjectHideFlags: 0

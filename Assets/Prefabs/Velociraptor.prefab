@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarImage: {fileID: 5167471208370520033}
-  dinosaurHealth: {fileID: 5167471209962897432}
+  dinosaurHealth: {fileID: 2603971111123031203}
   smoothSpeed: 3
 --- !u!1 &5167471209876636701
 GameObject:
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 5167471209962897507}
   - component: {fileID: 5167471209962897506}
   - component: {fileID: 5167471209962897511}
-  - component: {fileID: 5167471209962897432}
+  - component: {fileID: 2603971111123031203}
   - component: {fileID: 5167471209962897510}
   m_Layer: 0
   m_Name: Velociraptor
@@ -346,7 +346,7 @@ MonoBehaviour:
   moveSpeed: 2
   player: {fileID: 0}
   chaseDistance: 6
---- !u!114 &5167471209962897432
+--- !u!114 &2603971111123031203
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5167471209962897519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5bbfa1bbfa7043c4b75cb8a8c690307, type: 3}
+  m_Script: {fileID: 11500000, guid: 22f78fccb2500493f8b1b82fd5568e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 12

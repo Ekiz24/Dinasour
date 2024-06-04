@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8082161830273082482}
   - component: {fileID: 8082161830273082483}
   - component: {fileID: 8082161830273082492}
+  - component: {fileID: 7778918375959825087}
   - component: {fileID: 8082161830273082493}
-  - component: {fileID: 8082161830273082495}
   - component: {fileID: 8082161830273082494}
   m_Layer: 0
   m_Name: Pterosaurs
@@ -137,6 +137,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 14.958588, y: 9.130413}
   m_EdgeRadius: 0
+--- !u!114 &7778918375959825087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8082161830273082489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db94d4f20c9914cbbb894d02ad6096c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 18
+  webExplosionPrefab: {fileID: 4632630747707579781, guid: 3b81ea103cb0c490a981aab3a7a98f55, type: 3}
+  snowballExplosionPrefab: {fileID: 4632630747707579781, guid: 0a5f15ef4b0f140f69195467358d8042, type: 3}
+  berrybombExplosionPrefab: {fileID: 4632630747707579781, guid: 3cef771bad3544fce99c15ca83be2860, type: 3}
 --- !u!114 &8082161830273082493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,22 +168,6 @@ MonoBehaviour:
   moveSpeed: 2
   player: {fileID: 0}
   chaseDistance: 6
---- !u!114 &8082161830273082495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8082161830273082489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5bbfa1bbfa7043c4b75cb8a8c690307, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 24
-  webExplosionPrefab: {fileID: 4632630747707579781, guid: 3b81ea103cb0c490a981aab3a7a98f55, type: 3}
-  snowballExplosionPrefab: {fileID: 4632630747707579781, guid: 0a5f15ef4b0f140f69195467358d8042, type: 3}
-  berrybombExplosionPrefab: {fileID: 4632630747707579781, guid: 3cef771bad3544fce99c15ca83be2860, type: 3}
 --- !u!114 &8082161830273082494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarImage: {fileID: 8082161831192902274}
-  dinosaurHealth: {fileID: 8082161830273082495}
+  dinosaurHealth: {fileID: 7778918375959825087}
   smoothSpeed: 3
 --- !u!1 &8082161831866459346
 GameObject:
