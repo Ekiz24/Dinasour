@@ -6,7 +6,7 @@ public class NextPageButton : MonoBehaviour
 {
     public GameObject[] pages;
     public GameObject[] hiddens;
-    private int PageNumber;
+    private int PageNumber=0;
     void Awake()
     {
         pages[0].SetActive(true);
@@ -19,20 +19,20 @@ public class NextPageButton : MonoBehaviour
 
     public void NextPage()
     {
-        if (PageNumber==pages.Length-1)
+       
+        if (PageNumber<pages.Length-2)
         {
+            pages[PageNumber].SetActive(false);
+            PageNumber++;
+            pages[PageNumber].SetActive(true);
+        }
+        else
+        {
+            pages[pages.Length-1].SetActive(false);
             hiddens[0].SetActive(true);
             hiddens[1].SetActive(true);
             hiddens[2].SetActive(true);
             hiddens[3].SetActive(true);
-        }
-
-                pages[PageNumber].SetActive(false);
-
-        if (PageNumber<pages.Length-1)
-        {
-            PageNumber++;
-            pages[PageNumber].SetActive(true);
         }
             
 
