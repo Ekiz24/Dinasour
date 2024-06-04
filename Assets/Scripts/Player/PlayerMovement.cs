@@ -63,6 +63,11 @@ public class PlayerMovement : MonoBehaviour
         #region Switch Tool
         SwitchTool();
         #endregion
+        if (kills >= 4)
+        {
+            gameObject.SetActive(false);
+            winPanel.SetActive(true);
+        }
 
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -72,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
             playerHealth--;
             kills++;
             Debug.Log("PlayerHealth:" + playerHealth);
+            Debug.Log("PlayerKills:" + kills);
             Destroy(collision.gameObject);
             if(playerHealth<=0)
             {
@@ -135,10 +141,6 @@ public class PlayerMovement : MonoBehaviour
     {
         kills++;
         Debug.Log("You captured"+kills);
-        if (kills >= 4)
-        {
-            gameObject.SetActive(false);
-            winPanel.SetActive(true);
-        }
+
     }
 }
