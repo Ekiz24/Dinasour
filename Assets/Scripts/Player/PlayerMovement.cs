@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         #region Switch Tool
         SwitchTool();
         #endregion
-        if (kills >= 4)
+        if (kills >= 6)
         {
             gameObject.SetActive(false);
             winPanel.SetActive(true);
