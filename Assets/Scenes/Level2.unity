@@ -257,7 +257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 66a0b3e7b2c0e491e9f6ff66f1585e7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1805,7 +1805,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2972,8 +2972,8 @@ RectTransform:
   m_GameObject: {fileID: 982425775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1319891813}
   m_RootOrder: 1
@@ -2981,7 +2981,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.0000091791, y: 10.097}
-  m_SizeDelta: {x: 87.381, y: 76.1949}
+  m_SizeDelta: {x: 87.381, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982425777
 MonoBehaviour:
@@ -3010,13 +3010,20 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dinosaur Desciption/Profile
+  m_Text: 'Congratulations,
+
+    you saved them!
+
+
+    Stegosaurus are waiting for
+    you at a flaming mountain, where all their favorite berries have been burned
+    up.'
 --- !u!222 &982425778
 CanvasRenderer:
   m_ObjectHideFlags: 0
